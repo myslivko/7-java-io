@@ -9,5 +9,15 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+        while (System.in.available() > 0) {
+            int byteFromIn = System.in.read();
+            System.in.mark(1);
+            int nextByteFromIn = System.in.read();
+            if (!(byteFromIn == '\r' && nextByteFromIn == '\n')) {
+                System.out.write(byteFromIn);
+            }
+            System.in.reset();
+        }
+        System.out.flush();
     }
 }
